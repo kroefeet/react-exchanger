@@ -14,19 +14,13 @@ class App extends Component {
         base: "EUR",
     };
 
-    chosenCurrencies = ["EUR", "CAD", "USD", "AUD", "GBP", "NOK"]
 
     componentDidMount = (ev) => {
         this.onRefresh();
     }
 
-    filterView = (labels) => {
-
-    }
-
     onRefresh = () => {
         let newBase = document.querySelector('#baseCurrency').value
-
         let url = 'https://api.exchangeratesapi.io/latest?base=' + newBase
         console.log(url)
         fetch(url)
@@ -35,7 +29,7 @@ class App extends Component {
               const newRates = [];
               let percentage = 1;
               for (const [key, value] of Object.entries(data.rates)) {
-                  percentage = (1/value) * 100;
+                  percentage = (1/value) * 50;
                   newRates.push({
                       number: value,
                       label: key,
@@ -50,6 +44,8 @@ class App extends Component {
             })
             console.log('this is from onRefresh')
               console.log(newRates)
+
+
             });
 
         };
