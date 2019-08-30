@@ -14,11 +14,13 @@ class App extends Component {
         base: "EUR",
     };
 
+    chosenCurrencies = ["EUR", "CAD", "USD", "AUD", "GBP", "NOK"]
+
     componentDidMount = (ev) => {
         this.onRefresh();
     }
 
-    createBar = () => {
+    filterView = (labels) => {
 
     }
 
