@@ -1,24 +1,87 @@
-.App {
-  text-align: center;
+:root {
+    --bg-color: #F0F8FF;
+    --lighter-color: #64c4ed;
+    --darker-color: #4f81c7;
+    --text-color: #F0F8FF;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.MainContent {
+    background-color: var(--bg-color);
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+    grid-template-rows: 100px 500px 1fr;
+    border: 1px solid #00688B;
+}
+/* Title Bar styling */
+.MainTitle {
+    grid-column: 1 / span 3;
+    grid-row-start: 1;
+
+    padding: 20px;
+    background-color: #00688B;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.MainTitle--title {
+    flex-basis: 50%;
 }
 
-.App-intro {
-  font-size: large;
+.MainTitle--baseInfo {
+    flex-basis: 25%;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.Chooser {
+    grid-column: 1 / span 3;
+    display: flex;
+    align-items: center;
+}
+
+.Chooser-choices input[type=checkbox] {
+
+}
+
+.Chooser-choices {
+
+}
+
+/* Graph Area styling */
+.GraphArea {
+    grid-column: 2;
+    grid-column-gap: 5px;
+    display: flex;
+    align-items: flex-end;
+}
+
+/* individual bars */
+.GraphArea--barChart {
+    text-align: center;
+    font-size: 1.5rem;
+    flex-grow: 1;
+    transition: filter, transform .5s;
+    background-color: var(--lighter-color);
+    color: var(--text-color);
+}
+
+
+.GraphArea--barChart:nth-of-type(even) {
+    background-color: var(--darker-color);
+    color: var(--text-color);
+}
+
+/* transition for hover and highligh */
+.GraphArea--barChart:hover {
+    transform: perspective(200px) translate3D(0em, -.2em, .5em);
+    filter: contrast(150%) drop-shadow(8px 8px 10px gray);
+
+}
+
+
+/* changing size of Title Bar text to account for wordwrap */
+@media screen and (max-width: 720px){
+    .MainTitle {
+        font-size: 1rem;
+    }
 }
